@@ -7,13 +7,15 @@ Thank you for your interest in contributing to our project. We welcome contribut
 To get started with contributing, please follow these steps:
 
 1. Fork the repository and clone it to your local machine.
-2. Install any necessary dependencies.
-3. Create a new branch for your changes: `git checkout -b my-branch-name`.
-4. Make your desired changes or additions.
-5. Run the tests to ensure everything is working as expected with: `pytest tests`
-6. Commit your changes: `git commit -m "Descriptive commit message"`.
-7. Push to the branch: `git push origin my-branch-name`.
-8. Submit a pull request to the `main` branch of the original repository.
+2. *(Recommended)* Create and activate a vitural environment with `conda` or [`venv`](https://docs.python.org/3.8/library/venv.html).
+3. Install necessary dependencies: `pip install -e .[dev,testing]`.
+4. Install the pre-commit hooks: `pre-commit install`.
+5. Create a new branch for your changes: `git checkout -b my-branch-name`.
+6. Make your desired changes or additions.
+7. Run the tests to ensure everything is working as expected with: `pytest tests`.
+8. Commit your changes: `git commit -m "Descriptive commit message"`.
+9. Push to the branch: `git push origin my-branch-name`.
+10. Submit a pull request to the `main` branch of the original repository.
 
 
 ## Code Style
@@ -22,20 +24,17 @@ Please make sure to follow the established code style guidelines for this projec
 
 To enforce this we use [`pre-commit`](https://pre-commit.com/) to run [`black`](https://black.readthedocs.io/en/stable/index.html) and [`ruff`](https://beta.ruff.rs/docs/) on every commit.
 
-`pre-commit` is part of our requirements in the `pyproject.toml` file so you should already have it installed. If you don't, you can install the library via pip with:
+`pre-commit` is part of our development dependencies in the `pyproject.toml` file. If you don't have it installed, you can install the library via pip with:
 
 ```bash
-$ pip install -e .
+$ pip install -e .[dev]
 
 # And then install the `pre-commit` hooks with:
-
 $ pre-commit install
 
 # output:
 pre-commit installed at .git/hooks/pre-commit
 ```
-
-Or you could just run `make dev-install` to install the dependencies and the hooks.
 
 If you are not familiar with the concept of [git hooks](https://git-scm.com/docs/githooks) and/or [`pre-commit`](https://pre-commit.com/) please read the documentation to understand how they work.
 
